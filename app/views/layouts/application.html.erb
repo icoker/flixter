@@ -11,12 +11,38 @@
 
   <body>
     <!-- Image and text -->
-    <nav class="navbar navbar-inverse bg-inverse">
-      <a class="navbar-brand" href="#">
-        <%= image_tag "web-programming.svg", width: '30', height: '30', class: 'd-inline-block align-top', alt: '' %>
-        Flixter
-      </a>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <div class="collapse navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
+        <div class="navbar-brand mr-auto">
+          <%= link_to image_tag("web-programming.svg", width: '30', height: '30', class: 'd-inline-block', alt: ''), root_path %>
+          <%= link_to 'Flixter', root_path, class: 'navbar-brand' %>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
+
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
     <br />
     <div id="copyright"><p>Icon made by Icongeek26 from www.flaticon.com </p></div>
