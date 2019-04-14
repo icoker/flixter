@@ -12,13 +12,15 @@
   <body>
     <!-- Image and text -->
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <div class="collapse navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
-        <div class="navbar-brand mr-auto">
-          <%= link_to image_tag("web-programming.svg", width: '30', height: '30', class: 'd-inline-block', alt: ''), root_path %>
-          <%= link_to 'Flixter', root_path, class: 'navbar-brand' %>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img src="/assets/web-programming.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Flixter
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
@@ -34,6 +36,7 @@
           <% end %>
         </ul>
       </div>
+
     </nav>
 
     <% if notice.present? %>
