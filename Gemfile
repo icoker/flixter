@@ -81,3 +81,5 @@ gem 'figaro'
 gem 'fog-aws'
 
 gem 'font-awesome-rails'
+
+gem 'mini_magick'
