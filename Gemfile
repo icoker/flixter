@@ -83,3 +83,5 @@ gem 'fog-aws'
 gem 'font-awesome-rails'
 
 gem 'mini_magick'
+
+gem 'carrierwave-aws'
