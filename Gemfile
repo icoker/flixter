@@ -85,3 +85,5 @@ gem 'font-awesome-rails'
 gem 'mini_magick'
 
 gem 'carrierwave-aws'
+
+gem 'stripe'
